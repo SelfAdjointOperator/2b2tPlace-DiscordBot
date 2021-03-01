@@ -1,2 +1,5 @@
 gitignore Extras/
 __pycache__/
+/venv
+/bot/botConfig_private.json
+/bot/logs
