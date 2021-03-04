@@ -3,4 +3,4 @@ __pycache__/
 /venv
 /run.sh
 /botConfig_private.json
-/bot/logs
+/logs
