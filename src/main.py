@@ -72,10 +72,10 @@ async def on_message(message):
                     await message_author.send("Bot incurred status code {} while trying to connect to 2b2t.Place!\nError has been logged and will be fixed soon, apologies! 😵".format(str(statusCode)))
                 else:
                     r_json = json.loads(await r.text())
-                    if "nextTimeAllowed" in r_json:
-                        await message_author.send("You may only choose a pixel once every 5 minutes! 😏\nNext token available at {} UTC".format(datetime.datetime.utcfromtimestamp(int(r_json["nextTimeAllowed"])).strftime("%Y-%m-%d %H:%M:%S")))
-                    elif "token" in r_json:
-                        await message_author.send("Your token is: '{}' 🎟️".format(r_json["token"]))
+                    if "token" in r_json:
+                        embed = discord.Embed()
+                        embed.description = "Click [here](https://2b2t.place/api/addCookie_{}) to add the cookie to your browser 🍪".format(r_json["token"])
+                        await message_author.send(embed = embed)
                     else:
                         errorDict = {
                             "statusCode":  "BAD_API_RESPONSE",
