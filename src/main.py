@@ -73,7 +73,7 @@ async def on_message(message):
                 else:
                     r_json = json.loads(await r.text())
                     if "nextTimeAllowed" in r_json:
-                        await message_author.send("You may only choose a pixel once per day! 😏\nNext token available at {} UTC".format(datetime.datetime.utcfromtimestamp(int(r_json["nextTimeAllowed"])).strftime("%Y-%m-%d %H:%M:%S")))
+                        await message_author.send("You may only choose a pixel once every 5 minutes! 😏\nNext token available at {} UTC".format(datetime.datetime.utcfromtimestamp(int(r_json["nextTimeAllowed"])).strftime("%Y-%m-%d %H:%M:%S")))
                     elif "token" in r_json:
                         await message_author.send("Your token is: '{}' 🎟️".format(r_json["token"]))
                     else:
