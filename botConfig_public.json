@@ -3,6 +3,6 @@
         "getToken": 815667015485751318
     },
     "APIEndpoint": {
-        "tokenJSON": "http://localhost:5000/api/token.json"
+        "tokenJSON": "https://2b2t.place/api/admin/token.json"
     }
 }

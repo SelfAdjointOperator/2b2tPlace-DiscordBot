@@ -71,7 +71,7 @@ async def on_message(message):
                     ManualLogging.logErrorJSON(errorDict)
                     await message_author.send("Bot incurred status code {} while trying to connect to 2b2t.Place!\nError has been logged and will be fixed soon, apologies! 😵".format(str(statusCode)))
                 else:
-                    r_json = await r.json()
+                    r_json = json.loads(await r.text())
                     if "nextTimeAllowed" in r_json:
                         await message_author.send("You may only choose a pixel once per day! 😏\nNext token available at {} UTC".format(datetime.datetime.utcfromtimestamp(int(r_json["nextTimeAllowed"])).strftime("%Y-%m-%d %H:%M:%S")))
                     elif "token" in r_json:
